@@ -37,7 +37,7 @@ const Author = defineNestedType(() => ({
 
 const Resource = defineDocumentType(() => ({
   name: 'Resource',
-  filePathPattern: 'resources/*.mdx',
+  filePathPattern: '*.mdx',
   contentType: 'mdx',
   fields: {
     title: { type: 'string', required: true },
