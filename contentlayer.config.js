@@ -4,7 +4,6 @@ import {
   makeSource,
 } from 'contentlayer/source-files';
 
-
 import readingTime from 'reading-time';
 import remarkGfm from 'remark-gfm';
 import rehypeSlug from 'rehype-slug';
@@ -35,15 +34,14 @@ const Author = defineNestedType(() => ({
 }));
 
 
-const Resource = defineDocumentType(() => ({
-  name: 'Resource',
+const Blog = defineDocumentType(() => ({
+  name: 'Blog',
   filePathPattern: '*.mdx',
   contentType: 'mdx',
   fields: {
     title: { type: 'string', required: true },
     publishedAt: { type: 'string', required: true },
     description: { type: 'string', required: true },
-    seoDescription: { type: 'string', required: true },
     category: { type: 'string', required: true },
     author: {
       type: 'nested',
@@ -56,7 +54,7 @@ const Resource = defineDocumentType(() => ({
 
 const contentLayerConfig = makeSource({
   contentDirPath: 'content',
-  documentTypes: [Resource],
+  documentTypes: [Blog],
   mdx: {
     remarkPlugins: [remarkGfm],
     rehypePlugins: [
